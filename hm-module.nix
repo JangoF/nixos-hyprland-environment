@@ -1,9 +1,9 @@
-{ config, pkgs, lib, ... }: with lib; let cfg = config.programs.hyprland-environment; in {
+{ config, pkgs, ... }: let cfg = config.programs.hyprland-environment; in {
 
   options.programs.hyprland-environment = {
-    enable = mkEnableOption "hyprland-environment";
+    enable = pkgs.lib.mkEnableOption "hyprland-environment";
 
-    config = mkIf cfg.enable {
+    config = pkgs.lib.mkIf cfg.enable {
       home.packages = with pkgs; [
         bc
         slurp

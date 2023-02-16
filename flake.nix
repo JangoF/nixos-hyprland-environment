@@ -19,7 +19,7 @@
         source = ./scripts;
       };
 
-      packages = with pkgs; [
+      home.packages = with pkgs; [
         bc
         slurp
         swayidle

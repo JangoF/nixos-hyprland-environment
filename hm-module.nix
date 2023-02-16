@@ -1,37 +1,24 @@
-# self: { config, pkgs, lib, ... }: let cfg = config.programs.hyprland-environment; in {
 { pkgs, ... }: {
+  home.packages = with pkgs; [
+    bc
+    slurp
+    swayidle
+    swaylock-effects
+    notify-desktop
+    wf-recorder
+    playerctl
+  ];
 
-  # options.programs.hyprland-environment = {
-  #   enable = lib.mkEnableOption "hyprland-environment";
+  xdg.configFile."hypr" = {
+    source = ./hyprland;
+  };
+  
+  imports = [
+    ./programs/source/wofi.nix
 
-  #   config = lib.mkIf cfg.enable {
-      home.packages = with pkgs; [
-        bc
-        slurp
-        swayidle
-        swaylock-effects
-        notify-desktop
-        wf-recorder
-        playerctl
-        # grimblast
-        # hyprpicker
-      ];
-
-      # xdg.configFile."hypr/hyprland.conf" = {
-      #   source = ./hyprland/hyprland.conf;
-      # };
-
-      # xdg.configFile."hypr/config" = {
-      #   source = ./hyprland/config;
-      # };
-
-      # xdg.configFile."hypr/scripts" = {
-      #   source = ./hyprland/scripts;
-      # };
-
-      xdg.configFile."hypr" = {
-        source = ./hyprland;
-      };
-  #   };
-  # };
+    ./programs/eww.nix
+    ./programs/mako.nix
+    ./programs/theme.nix
+    ./programs/wofi.nix
+  ];
 }

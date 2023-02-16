@@ -9,6 +9,7 @@
     # inherit (nixpkgs) lib;
     # inherit pkgs;
     # homeManagerModules.default = import ./hm-module.nix self;
+    nixosModules.default = import ./module.nix pkgs;
     homeManagerModules.default = import ./hm-module.nix pkgs;
   };
 }

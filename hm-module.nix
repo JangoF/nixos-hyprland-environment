@@ -13,7 +13,7 @@
     source = ./hyprland;
   };
   
-  imports = [
+  import = [
     ./programs/source/wofi.nix
 
     ./programs/eww.nix

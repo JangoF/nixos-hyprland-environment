@@ -6,8 +6,9 @@
   };
 
   outputs = { self, nixpkgs, ... }: let pkgs = nixpkgs.legacyPackages."x86_64-linux"; in {
-    inherit (nixpkgs) lib;
-    inherit pkgs;
-    homeManagerModules.default = import ./hm-module.nix self;
+    # inherit (nixpkgs) lib;
+    # inherit pkgs;
+    # homeManagerModules.default = import ./hm-module.nix self;
+    homeManagerModules.default = import ./hm-module.nix pkgs;
   };
 }

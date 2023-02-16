@@ -1,9 +1,10 @@
-{ config, pkgs, ... }: let cfg = config.programs.hyprland-environment; in {
+# self: { config, pkgs, lib, ... }: let cfg = config.programs.hyprland-environment; in {
+{ pkgs, ... }: {
 
-  options.programs.hyprland-environment = {
-    enable = pkgs.lib.mkEnableOption "hyprland-environment";
+  # options.programs.hyprland-environment = {
+  #   enable = lib.mkEnableOption "hyprland-environment";
 
-    config = pkgs.lib.mkIf cfg.enable {
+  #   config = lib.mkIf cfg.enable {
       home.packages = with pkgs; [
         bc
         slurp
@@ -25,6 +26,6 @@
       xdg.configFile."hypr/scripts" = {
         source = ./scripts;
       };
-    };
-  };
+  #   };
+  # };
 }

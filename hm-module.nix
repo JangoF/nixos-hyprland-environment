@@ -17,16 +17,20 @@
         # hyprpicker
       ];
 
-      xdg.configFile."hypr/hyprland.conf" = {
-        source = ./hyprland.conf;
-      };
+      # xdg.configFile."hypr/hyprland.conf" = {
+      #   source = ./hyprland/hyprland.conf;
+      # };
 
-      xdg.configFile."hypr/config" = {
-        source = ./config;
-      };
+      # xdg.configFile."hypr/config" = {
+      #   source = ./hyprland/config;
+      # };
 
-      xdg.configFile."hypr/scripts" = {
-        source = ./scripts;
+      # xdg.configFile."hypr/scripts" = {
+      #   source = ./hyprland/scripts;
+      # };
+
+      xdg.configFile."hypr" = {
+        source = ./hyprland;
       };
   #   };
   # };

@@ -1,11 +1,11 @@
 {
   inputs = {
-    # nixpkgs = {
-    #   url = "github:NixOS/nixpkgs/nixos-unstable";
-    # };
+    nixpkgs = {
+      url = "github:NixOS/nixpkgs/nixos-unstable";
+    };
   };
 
-  outputs = { self, ... }: {
+  outputs = { self, nixpkgs, system, ... }: let pkgs = nixpkgs.legacyPackages.${system}; in {
     homeManagerModule = { config, pkgs, ... }: {
       xdg.configFile."hypr/hyprland.conf" = {
         source = ./hyprland.conf;
@@ -18,6 +18,14 @@
       xdg.configFile."hypr/scripts" = {
         source = ./scripts;
       };
+
+      packages = with pkgs; [
+        bc
+        slurp
+        swayidle
+        swaylock-effects
+        notify-desktop
+      ];
     };
   };
 }

@@ -5,7 +5,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, system, ... }: let pkgs = nixpkgs.legacyPackages.${system}; in {
+  outputs = { self, nixpkgs, ... }: let pkgs = nixpkgs.legacyPackages."x86_64-linux"; in {
     homeManagerModule = { config, pkgs, ... }: {
       xdg.configFile."hypr/hyprland.conf" = {
         source = ./hyprland.conf;

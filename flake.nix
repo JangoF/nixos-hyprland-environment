@@ -22,6 +22,7 @@
         swayidle
         swaylock-effects
         notify-desktop
+        wf-recorder
       ];
     };
   };

@@ -13,8 +13,8 @@
         notify-desktop
         wf-recorder
         playerctl
-        grimblast
-        hyprpicker
+        # grimblast
+        # hyprpicker
       ];
 
       xdg.configFile."hypr/hyprland.conf" = {

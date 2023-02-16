@@ -5,7 +5,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }: {
-    homeManagerModules.default = import ./hm-module.nix { pkgs = nixpkgs.legacyPackages."x86_64-linux"; };
+  outputs = { self, nixpkgs, ... }: let pkgs = nixpkgs.legacyPackages."x86_64-linux"; in {
+    homeManagerModules.default = import ./hm-module.nix { inherit pkgs; lib = nixpkgs.lib; };
   };
 }

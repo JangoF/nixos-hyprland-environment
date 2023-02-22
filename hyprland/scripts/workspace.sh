@@ -21,7 +21,7 @@ elif [[ $1 == "--moveTo" ]]; then
     #         pkill wofi
     #     fi
 
-        hyprctl dispatch movetoworkspacesilent $2
+        hyprctl dispatch movetoworkspace $2
     # fi
 
 fi
